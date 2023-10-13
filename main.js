@@ -1011,6 +1011,10 @@ function ChartData(mainData, subData = null, optionsOverride = null) {
     }
 }
 
+function compareNumbers(a, b) {
+    return a - b;
+  }
+
 function ChartPieData(mainData) {
     var ctx  = document.getElementById("chart-" + mainData)
     var data = new google.visualization.DataTable();
@@ -1421,6 +1425,7 @@ function EnableSubmitButton() {
 
 function SumObjectValues( obj ) {
     var sum = 0;
+    obj.sort(compareNumbers);
     for (var element in obj) {
         if (obj.hasOwnProperty(element)) {
             sum += parseInt(obj[element]);
